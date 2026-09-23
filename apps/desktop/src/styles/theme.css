@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/*
+ * ADITUP design tokens (Module 10 — UI).
+ *
+ * Brand colors carried over from the reference ADITUP prototype
+ * (--green/--green-deep/--yellow/--sage/--sand/--cream). Fonts are system
+ * stacks, not the prototype's Google-Fonts Montserrat import — this app
+ * must work fully offline (§3 NFR), so nothing loads from a font CDN at
+ * runtime.
+ *
+ * Each token is declared twice: once inside @theme so Tailwind generates
+ * utilities from it (bg-bg, text-ink, border-line, ...), and once as the
+ * actual runtime value under :root / prefers-color-scheme / [data-theme].
+ * The @theme values just point at the runtime variable, so switching
+ * `data-theme` on <html> re-themes every utility class without a rebuild.
+ */
+
+@theme {
+  --color-bg: var(--aditup-bg);
+  --color-surface: var(--aditup-surface);
+  --color-surface-alt: var(--aditup-surface-alt);
+  --color-ink: var(--aditup-ink);
+  --color-ink-muted: var(--aditup-ink-muted);
+  --color-accent: var(--aditup-accent);
+  --color-accent-strong: var(--aditup-accent-strong);
+  --color-on-accent: var(--aditup-on-accent);
+  --color-gold: var(--aditup-gold);
+  --color-gold-chip: var(--aditup-gold-chip);
+  --color-line: var(--aditup-line);
+  --color-line-strong: var(--aditup-line-strong);
+
+  --color-risk-low: var(--aditup-risk-low);
+  --color-risk-medium: var(--aditup-risk-medium);
+  --color-risk-high: var(--aditup-risk-high);
+  --color-risk-critical: var(--aditup-risk-critical);
+
+  --font-display: ui-sans-serif, "Segoe UI Semibold", "Segoe UI", system-ui, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", "SF Mono", Consolas, monospace;
+}
+
+:root {
+  --aditup-bg: #faf7ec;
+  --aditup-surface: #ffffff;
+  --aditup-surface-alt: #f1ece0;
+  --aditup-ink: #1b2b28;
+  --aditup-ink-muted: #55645f;
+  --aditup-accent: #2c665d;
+  --aditup-accent-strong: #183934;
+  --aditup-on-accent: #faf7ec;
+  --aditup-gold: #9c7208;
+  --aditup-gold-chip: #efc71d;
+  --aditup-line: rgb(24 57 52 / 15%);
+  --aditup-line-strong: rgb(24 57 52 / 30%);
+
+  --aditup-risk-low: #4d7a34;
+  --aditup-risk-medium: #a8720f;
+  --aditup-risk-high: #b5501c;
+  --aditup-risk-critical: #9c2036;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --aditup-bg: #0d1917;
+    --aditup-surface: #132724;
+    --aditup-surface-alt: #17322d;
+    --aditup-ink: #e9f1ee;
+    --aditup-ink-muted: #9db3ad;
+    --aditup-accent: #68bfae;
+    --aditup-accent-strong: #efc71d;
+    --aditup-on-accent: #17251f;
+    --aditup-gold: #efc71d;
+    --aditup-gold-chip: #3a2f0c;
+    --aditup-line: rgb(233 241 238 / 14%);
+    --aditup-line-strong: rgb(233 241 238 / 28%);
+
+    --aditup-risk-low: #7ec26a;
+    --aditup-risk-medium: #e0a83e;
+    --aditup-risk-high: #e2814c;
+    --aditup-risk-critical: #e2607a;
+  }
+}
+
+:root[data-theme="dark"] {
+  --aditup-bg: #0d1917;
+  --aditup-surface: #132724;
+  --aditup-surface-alt: #17322d;
+  --aditup-ink: #e9f1ee;
+  --aditup-ink-muted: #9db3ad;
+  --aditup-accent: #68bfae;
+  --aditup-accent-strong: #efc71d;
+  --aditup-on-accent: #17251f;
+  --aditup-gold: #efc71d;
+  --aditup-gold-chip: #3a2f0c;
+  --aditup-line: rgb(233 241 238 / 14%);
+  --aditup-line-strong: rgb(233 241 238 / 28%);
+
+  --aditup-risk-low: #7ec26a;
+  --aditup-risk-medium: #e0a83e;
+  --aditup-risk-high: #e2814c;
+  --aditup-risk-critical: #e2607a;
+}
+
+:root[data-theme="light"] {
+  --aditup-bg: #faf7ec;
+  --aditup-surface: #ffffff;
+  --aditup-surface-alt: #f1ece0;
+  --aditup-ink: #1b2b28;
+  --aditup-ink-muted: #55645f;
+  --aditup-accent: #2c665d;
+  --aditup-accent-strong: #183934;
+  --aditup-on-accent: #faf7ec;
+  --aditup-gold: #9c7208;
+  --aditup-gold-chip: #efc71d;
+  --aditup-line: rgb(24 57 52 / 15%);
+  --aditup-line-strong: rgb(24 57 52 / 30%);
+
+  --aditup-risk-low: #4d7a34;
+  --aditup-risk-medium: #a8720f;
+  --aditup-risk-high: #b5501c;
+  --aditup-risk-critical: #9c2036;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}

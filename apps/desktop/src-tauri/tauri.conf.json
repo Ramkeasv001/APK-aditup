@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "ADITUP",
+  "version": "0.1.0",
+  "identifier": "com.aditup.platform",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "ADITUP — HSE Observation & Recommendation Platform",
+        "width": 1180,
+        "height": 800,
+        "minWidth": 960,
+        "minHeight": 640,
+        "label": "main"
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "dmg",
+      "msi",
+      "deb",
+      "appimage"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "macOS": {
+      "signing": {
+        "identity": null
+      },
+      "minimumSystemVersion": "10.13.6",
+      "hardening": {
+        "runtimePath": true
+      }
+    },
+    "windows": [
+      {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": "http://timestamp.digicert.com"
+      }
+    ],
+    "linux": {
+      "deb": {
+        "depends": []
+      }
+    },
+    "deb": {
+      "depends": []
+    }
+  }
+}

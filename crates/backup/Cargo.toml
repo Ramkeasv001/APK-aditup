@@ -1,0 +1,20 @@
+[package]
+name = "aditup-backup"
+version = "0.1.0"
+description = "Backup/Restore Engine: database snapshots with integrity validation."
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+aditup-db = { path = "../db" }
+rusqlite = "0.32"
+thiserror = "2"
+log = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+sha2 = "0.10"
+hex = "0.4"
+zstd = "0.13"  # Compression for backups
