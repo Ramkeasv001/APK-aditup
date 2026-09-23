@@ -1,0 +1,14 @@
+[package]
+name = "aditup-recommendation-provider"
+version = "0.1.0"
+description = "The RecommendationProvider seam (§14) + Mode 1's rule-based implementation (Module 8), wiring observation_bank/recommendation_bank/legal_bank/synonym_bank against the scoring engine."
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+aditup-db = { path = "../db" }
+aditup-scoring-engine = { path = "../scoring-engine" }
+thiserror = "2"
+log = "0.4"
+serde = { version = "1", features = ["derive"] }

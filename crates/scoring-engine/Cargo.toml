@@ -1,0 +1,15 @@
+[package]
+name = "aditup-scoring-engine"
+version = "0.1.0"
+description = "Text preprocessing and TF-IDF term weighting shared by Modules 6-8 (Keyword Engine, Search Engine, Rule-Based Engine)."
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+# Deliberately no dependency on aditup-db: this is pure, allocation-only
+# text/math logic so it stays fast to build, easy to unit test, and reusable
+# from anywhere (including, eventually, Modes 2/3's retrieval step). serde is
+# the one exception — the public score/tag types need to round-trip through
+# Tauri IPC once Module 10 wires them up.
+serde = { version = "1", features = ["derive"] }

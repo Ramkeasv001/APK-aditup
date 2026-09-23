@@ -1,0 +1,24 @@
+[package]
+name = "aditup-export"
+version = "0.1.0"
+description = "Export Engine: audit data to XLSX, CSV, and PDF formats."
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+aditup-db = { path = "../db" }
+rusqlite = "0.32"
+thiserror = "2"
+log = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+uuid = { version = "1", features = ["v4"] }
+
+# Export format libraries
+rust_xlsxwriter = "0.65"  # XLSX generation
+csv = "1.3"               # CSV generation
+chrono = { version = "0.4", features = ["serde"] }  # Date/time formatting
+
+[dev-dependencies]
+tempfile = "3"
