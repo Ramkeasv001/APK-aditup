@@ -1,0 +1,25 @@
+{
+  "name": "aditup-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HSE Observation & Recommendation Platform — Mode 1 (rule-based + self-learning engine)",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "dev": "pnpm --filter @aditup/desktop dev",
+    "tauri": "pnpm --filter @aditup/desktop tauri",
+    "build": "pnpm -r --workspace-concurrency=1 --if-present run build",
+    "test": "pnpm -r --if-present run test",
+    "lint": "pnpm -r --if-present run lint",
+    "typecheck": "pnpm -r --if-present run typecheck",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3"
+  }
+}

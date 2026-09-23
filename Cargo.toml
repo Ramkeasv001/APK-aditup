@@ -1,0 +1,27 @@
+[workspace]
+resolver = "2"
+members = [
+  "apps/desktop/src-tauri",
+  "crates/db",
+  "crates/security",
+  "crates/scoring-engine",
+  "crates/recommendation-provider",
+  "crates/kle",
+  "crates/export",
+  "crates/backup",
+]
+
+# `export` (Module 11) is now implemented. Previously: `security` landed early (Module 3) rather than
+# at Module 13 because authentication has to exist before there's anything
+# meaningful to gate; Module 13 hardens it further (audit log hash-chain,
+# project-level keys). `scoring-engine` landed at Module 6 (preprocessing +
+# TF-IDF) and was extended in place by Modules 7 (index, fuzzy, ranking,
+# confidence) and 9 (feedback-weight adjustment) rather than getting a crate
+# each. `recommendation-provider` (Module 8) is the §14 seam + Mode 1's
+# implementation. `kle` (Module 9) is the self-learning orchestration layer
+# on top of both.
+
+[workspace.package]
+edition = "2021"
+authors = ["HSE-DEPT"]
+license = "UNLICENSED"
